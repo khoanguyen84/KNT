@@ -1,0 +1,84 @@
+<html>
+    <head></head>
+    <body>
+        <!-- 
+            color
+            cách 1: sử dụng tên tiếng anh
+                ưu điểm: dễ nhớ
+                nhược điểm: hạn chế
+            cách 2: hecxadecimal
+                #RRGGBB : #FF0000
+                R: red 
+                G: Green
+                B: Blue
+
+                R, G, B: 0 -> 9 A -> F
+            Cách 3: RGB
+                RGB()
+                -> 0 - 255
+                -> 0% -> 100%
+
+                RGBA (a ~ alpla)
+         -->
+        <h1>Administators page</h1>
+
+        <div style="width:100px; height: 100px; background-color: rgba(255, 0, 0, 0.5);">
+
+        </div>
+        <table border="1" style="color: rgb(100%, 0%, 0%);">
+            <caption>DANH SÁCH NHÂN VIÊN</caption>
+            <thead>
+                <!-- tr ~ table row -->
+                <tr>
+                    <th rowspan="2">STT</th>
+                    <th rowspan="2">Họ và tên</th>
+                    <th rowspan="2">Ngày sinh</th>
+                    <th rowspan="2">Giới tính</th>
+                    <th rowspan="2">Số điện thoại</th>
+                    <th colspan="2">Lương</th>
+                </tr>
+                <tr>
+                    <th>Cơ bản</th>
+                    <th>Thưởng</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- td ~ table data -->
+                <tr>
+                    <td>1</td>
+                    <td>Khoa</td>
+                    <td>10/10/2000</td>
+                    <td>Nam</td>
+                    <td>0935216417</td>
+                    <td>8000000</td>
+                    <td>500000</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Trung</td>
+                    <td>10/10/2000</td>
+                    <td>Nam</td>
+                    <td>0935216417</td>
+                    <td>8500000</td>
+                    <td>500000</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Nhất</td>
+                    <td>10/10/2000</td>
+                    <td>Nam</td>
+                    <td>0935216417</td>
+                    <td>9000000</td>
+                    <td>500000</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="5">Tổng lương</td>
+                    <td>25500000</td>
+                    <td>15000000</td>
+                </tr>
+            </tfoot>
+        </table>
+    </body>
+</html>
