@@ -1,0 +1,203 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="site.css">
+    </head>
+    <body>
+        <form action="form.html" method="POST">
+            <table border="1">
+                <caption>Registration form</caption>
+                <input type="hidden" value="KTN">
+                <tr>
+                    <td>
+                        <label>Search</label>
+                    </td>
+                    <td>
+                        <input type="search" id="search" maxlength=10>
+                    </td>
+                </tr>   
+                <tr>
+                    <td>
+                        <label for="">Link Facebook</label>
+                    </td>
+                    <td>
+                        <input type="url" autofocus>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="">logo</label>
+                    </td>
+                    <td>
+                        <input type="image" src="images/admin.jpg">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="">Select a month</label>
+                    </td>
+                    <td>
+                        <input type="month">
+                    </td>
+                </tr>
+                <!-- 1 year  = 52 weeks
+                    1 quý = 13 tuần -->
+                <tr>
+                    <td>
+                        <label for="">Select a week</label>
+                    </td>
+                    <td>
+                        <input type="week">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="">Select values</label>
+                    </td>
+                    <td>
+                        <input type="range" min="0" max="10">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="">Security Code</label>
+                    </td>
+                    <td>
+                        <input type="text" value="123456" disabled readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Enter your first name</label>
+                    </td>
+                    <td>
+                        <input type="text" required placeholder="Enter your first name">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Enter your last name</label>
+                    </td>
+                    <td>
+                        <input type="text" required autocomplete="on">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="">Enter your password</label>
+                    </td>
+                    <td>
+                        <input type="password">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="">ReEnter you password</label>
+                    </td>
+                    <td>
+                        <input type="password">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="">Enter your email</label>
+                    </td>
+                    <td>
+                        <input type="email">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="">Enter your phone</label>
+                    </td>
+                    <td>
+                        <input type="tel" pattern="(09|01[2|6|8|9])+([0-9]{8})">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="">Enter your address</label>
+                    </td>
+                    <td>
+                        <textarea name="" id="" cols="30" rows="10"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="">Select your gender</label>
+                    </td>
+                    <td>
+                        male <input type="radio" name="gender" checked>
+                        female <input type="radio" name="gender">
+                        other <input type="radio" name="gender">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="">Select your hobbies</label>
+                    </td>
+                    <td>
+                        hobby1 <input type="checkbox">
+                        hobby2 <input type="checkbox" checked>
+                        hobby3 <input type="checkbox">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="">Select your DoB</label>
+                    </td>
+                    <td>
+                        <input type="date" name="" id="" min="2002-12-31">
+                        <input type="datetime-local">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="">Select your country</label>
+                    </td>
+                    <td>
+                        <select name="" id="">
+                            <option value="" selected disabled>Select your country</option>
+                            <option value="VietNam">Việt Nam</option>
+                            <option value="ThaiLan">Thái Lan</option>
+                            <option value="HanQuoc">Hàn Quốc</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="">Upload your picture</label>
+                    </td>
+                    <td>
+                        <input multiple type="file" accept="image/*">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="">Select your color</label>
+                    </td>
+                    <td>
+                        <input type="color">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="">Math Score</label>
+                    </td>
+                    <td>
+                        <input type="number" min=0 max= 10>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <!-- <button type="submit">Save</button>
+                        <button type="reset">Cancel</button> -->
+
+                        <!-- ctrl + / -->
+                        <input type="submit" value="Save">
+                        <input type="reset" value="Cancel">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
