@@ -1,0 +1,40 @@
+*{
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+p{
+    color:orange !important;
+}
+.p1{
+    color: violet;
+    background-color: yellow;
+}
+#phw{
+    color: green;
+    background-color: hotpink;
+    /* padding: 20px; */
+    /* padding: 20px 20px 20px 20px; */
+
+    padding: 30px 50px;
+    /* padding: 30px 50px 30px 50px; */
+    border: 1px solid white;
+    border-style: solid;
+    border-top-style: dotted;
+    border-color: blue;
+    margin-top: 90px;
+    margin: 90px 200px 0px 0px;
+}
+#ulEn li a{
+    text-decoration: none;
+}
+
+body{
+    /* background-color: aquamarine;
+    background-image: url('images/bg2.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: 200px 200px;
+    background-position-x: right ;
+    background-position-y: top; */
+    background: aquamarine url(images/bg2.png) fixed right top;
+}
