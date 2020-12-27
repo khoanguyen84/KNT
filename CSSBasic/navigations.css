@@ -1,0 +1,134 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.nav {
+    width: 250px;
+    margin: 20px auto;
+}
+
+.nav ul {
+    list-style: none;
+}
+
+.nav ul li {
+    border-bottom: 1px solid white;
+    background-color: #4CAF50;
+    position: relative;
+}
+
+.nav ul li a {
+    text-decoration: none;
+    display: block;
+    color: white;
+    padding: 5px 3px;
+}
+
+.nav ul li a:hover {
+    background-color: darkgreen;
+}
+
+.nav ul li ul {
+    display: none;
+    /* visibility: hidden; */
+    position: absolute;
+    width: 250px;
+    /* transition: all .2s; */
+    animation-name: opac;
+    animation-duration: 0.5s;
+}
+
+
+/* .nav ul li ul li a {
+    padding-left: 20px;
+} */
+
+.nav ul li:hover ul {
+    display: block;
+    /* visibility: visible; */
+    left: 251px;
+    top: 0;
+}
+
+.nav-horizon {
+    width: 100%;
+    margin: 10px auto;
+}
+
+.nav-horizon ul {
+    list-style: none;
+}
+
+.nav-horizon ul li {
+    float: left;
+    background-color: green;
+    width: 120px;
+    border-left: 1px solid white;
+    position: relative;
+}
+
+.nav-horizon ul li a {
+    padding: 5px 5px;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    display: block;
+}
+
+a:hover {
+    background-color: darkgreen;
+}
+
+.nav-horizon ul li ul {
+    display: none;
+    position: absolute;
+    width: 150px;
+    left: -1px;
+    top: 100%;
+}
+
+.nav-horizon ul li ul li {
+    clear: both;
+    width: 100%;
+    border-top: 1px solid white;
+}
+
+.nav-horizon ul li:hover ul {
+    display: block;
+}
+
+.nav-horizon ul li ul li a {
+    display: block;
+    text-align: left;
+}
+
+@keyframes opac {
+    0% {
+        display: block;
+        opacity: 0;
+        left: 0;
+    }
+    50% {
+        display: block;
+        opacity: .25;
+        left: 70px;
+    }
+    50% {
+        display: block;
+        opacity: .5;
+        left: 150px;
+    }
+    75% {
+        display: block;
+        opacity: .75;
+        left: 200px;
+    }
+    100% {
+        display: block;
+        opacity: 1;
+        left: 251px;
+    }
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="controlSwitch('turnon')">Turn on the light</button>
+    <img id="light" src="images/pic_bulboff.gif" alt="">
+    <button onclick="controlSwitch('turnoff')">Turn off the light</button>
+    <h1>Fresher</h1>
+    <button onmouseover="this.innerHTML = new Date();" onmouseout="this.innerHTML= 'Show datetime'">Show datetime</button>
+    <br>
+    <input id="pw" type="password" value="123456">
+    <button onclick="showPassword(this)">show password</button>
+    <script>
+        document.write("Learning JavaScript");
+    </script>
+    <script>
+        function showPassword(e) {
+            if (e.innerHTML == 'show password') {
+                document.getElementById('pw').type = 'text';
+                e.innerHTML = 'hide password';
+            } else {
+                document.getElementById('pw').type = 'password';
+                e.innerHTML = 'show password';
+            }
+        }
+
+        function switchOn() {
+            document.getElementById('light').src = 'images/pic_bulbon.gif';
+        }
+
+        function switchOff() {
+            document.getElementById('light').src = 'images/pic_bulboff.gif'
+        }
+
+        function controlSwitch(flat) {
+            var light = document.getElementById('light');
+            if (flat == 'turnon') {
+                light.src = 'images/pic_bulbon.gif'
+            } else {
+                light.src = 'images/pic_bulboff.gif'
+            }
+        }
+    </script>
+</body>
+
+</html>

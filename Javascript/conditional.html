@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <table>
+        <caption>ax<sup>2</sup> + bx + c = 0</caption>
+        <tr>
+            <td>a</td>
+            <td><input type="number" required></td>
+            <td rowspan="3">
+                <textarea name="" id="result" cols="30" rows="6"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>b</td>
+            <td><input type="number" required></td>
+        </tr>
+        <tr>
+            <td>c</td>
+            <td><input type="number" required></td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <button onclick="Process()">Giải phương trình</button>
+            </td>
+        </tr>
+    </table>
+
+    <table>
+        <caption>check the number is special number</caption>
+        <tr>
+            <td>number</td>
+            <td><input type="text" id="number"></td>
+        </tr>
+        <tr>
+            <td>result</td>
+            <td><input type="text" id="show"></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button onclick="checkNumber()">Check</button>
+            </td>
+        </tr>
+    </table>
+
+    <script src="conditional.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body onload="init()">
+    <img id="ball">
+
+    <table style="position: fixed; top:400px;">
+        <tr>
+            <td></td>
+            <td><button onclick="moveUp()">&uArr;</button></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><button onclick="moveLeft()">&lArr;</button></td>
+            <td></td>
+            <td><button onclick="moveRight()"> &rArr;</button></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button onclick="moveDown()">&dArr;</button></td>
+            <td></td>
+        </tr>
+    </table>
+    <script>
+        var rotate = 0;
+
+        function init() {
+            var ball = document.getElementById('ball');
+            ball.src = 'images/ball.jpg';
+            ball.style.width = '100px';
+            ball.style.height = '100px';
+            ball.style.position = 'absolute';
+            ball.style.top = 0;
+            ball.style.left = 0;
+            ball.style.transition = '.2s';
+            window.addEventListener('keydown', controllBall);
+        }
+
+        function moveRight() {
+            var ball = document.getElementById('ball');
+            if ((parseInt(ball.style.left) + parseInt(ball.style.width)) < window.innerWidth) {
+                ball.style.left = `${parseInt(ball.style.left) + 10}px`;
+                ball.style.transform = `rotate(${rotate+=15}deg)`
+            }
+        }
+
+        function moveLeft() {
+            var ball = document.getElementById('ball');
+            if (parseInt(ball.style.left) > 0) {
+                ball.style.left = `${parseInt(ball.style.left) - 10}px`;
+                ball.style.transform = `rotate(${rotate-=15}deg)`
+            }
+        }
+
+        function moveDown() {
+            var ball = document.getElementById('ball');
+            if (parseInt(ball.style.top) + parseInt(ball.style.height) < window.innerHeight) {
+                ball.style.top = `${parseInt(ball.style.top) + 10}px`;
+                ball.style.transform = `rotate(${rotate+=15}deg)`
+            }
+        }
+
+        function moveUp() {
+            var ball = document.getElementById('ball');
+            if (parseInt(ball.style.top) > 0) {
+                ball.style.top = `${parseInt(ball.style.top) - 10}px`;
+                ball.style.transform = `rotate(${rotate-=15}deg)`
+            }
+        }
+
+        function controllBall(evt) {
+            // if (evt.keyCode === 40) {
+            //     moveDown();
+            // } else if (evt.keyCode === 38) {
+            //     moveUp();
+            // } else if (evt.keyCode === 37) {
+            //     moveLeft();
+            // } else if (evt.keyCode === 39) {
+            //     moveRight();
+            // } else {
+            //     alert('please use one in four key [top, down, right, left] ');
+            // }
+
+            switch (evt.keyCode) {
+                //move down
+                case 40:
+                    {
+                        moveDown();
+                        break;
+                    }
+                    //move up
+                case 38:
+                    {
+                        moveUp();
+                        break;
+                    }
+                    //move left
+                case 37:
+                    {
+                        moveLeft();
+                        break;
+                    }
+                    //move right
+                case 39:
+                    {
+                        moveRight();
+                        break;
+                    }
+                default:
+                    {
+                        alert('please use one in four key [top, down, right, left] ');
+                        break;
+                    }
+            }
+        }
+
+        function a() {
+            var hello = 'hello outsite if';
+            if (6 > 5) {
+                var hello = 'hello inside if';
+                console.log('insite: ' + hello);
+            }
+            console.log('outsite: ' + hello);
+            let h = 'hello outsite if';
+            if (6 > 5) {
+                let h = 'hello inside if';
+                console.log('log 2:' + h)
+            }
+            console.log('log 1:' + h);
+
+            let a = 5;
+            b = --a + 5;
+            b = a-- + 5;
+
+            b += 5;
+            // === , ==
+        }
+    </script>
+</body>
+
+</html>

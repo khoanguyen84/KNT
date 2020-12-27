@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img id="light" src="images/pic_bulboff.gif" alt="">
+    <img id="switch" src="images/switchon.jpg" onclick="control()" style="width:100px; height:50px;">
+    <script>
+        var isSwitchOn = true;
+
+        function control() {
+            if (isSwitchOn) {
+                document.getElementById('light').src = 'images/pic_bulbon.gif';
+                document.getElementById('switch').src = 'images/switchoff.jpg';
+            } else {
+                document.getElementById('light').src = 'images/pic_bulboff.gif';
+                document.getElementById('switch').src = 'images/switchon.jpg';
+            }
+            isSwitchOn = !isSwitchOn;
+        }
+    </script>
+</body>
+
+</html>
