@@ -54,8 +54,10 @@ function main() {
     let size = enterNumber('enter size');
     let arr = generateArray(size, 10, 90);
     let arr2 = generateArray(100, 20, 80);
+    let arr3 = generateArray(100, 40, 120);
     document.write(printArray(arr, '-'));
     document.write(printArray(arr2, ','));
+    document.write(printArray(arr3, '+'));
     document.write(`<br>total of array: ${totalArray(arr)}`);
 
     let number1 = enterNumber('enter number 1');
