@@ -1,0 +1,92 @@
+*,
+*::before,
+*::after {
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0px auto;
+}
+
+.row {
+    width: 100%;
+    padding: 5px;
+}
+
+.add-product {
+    width: 40%;
+    background-color: grey;
+    padding: 20px 15px;
+    border-radius: 5px;
+}
+
+input {
+    padding: 5px;
+    border-radius: 2px;
+    outline: none;
+    border: none;
+}
+
+.btn {
+    text-decoration: none;
+    color: black;
+    padding: 3px 10px;
+    border-radius: 3px;
+}
+
+.btn:hover {
+    background-color: darkgray;
+}
+
+.btn-success {
+    background-color: #27ae60;
+    color: white
+}
+
+.btn-success:hover {
+    background-color: #2ecc71;
+}
+
+.btn-danger {
+    background-color: #c0392b;
+    color: white
+}
+
+.btn-danger:hover {
+    background-color: #e74c3c;
+}
+
+.table {
+    width: 100%;
+}
+
+.table,
+tr,
+th,
+td {
+    padding: 7px;
+}
+
+.table-bordered,
+tr,
+td,
+th {
+    border: 1px solid grey;
+    border-collapse: collapse;
+}
+
+.thead-dark {
+    background-color: #333333;
+    color: white;
+}
+
+.table>tbody>tr:nth-child(even) {
+    background-color: lightgray;
+}
+
+.table>tbody>tr:hover {
+    background-color: grey;
+}
