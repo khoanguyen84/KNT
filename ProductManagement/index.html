@@ -14,8 +14,8 @@
         <div class="row">
             <h3>Add New Product</h3>
             <div class="add-product">
-                <input type="text">
-                <a href="" class="btn btn-success">Add</a>
+                <input type="text" id="productName">
+                <a href="javascript:;" class="btn btn-success" onclick="addProduct()">Add</a>
             </div>
         </div>
         <div class="row">
@@ -24,46 +24,10 @@
                 <thead class="thead-dark">
                     <tr>
                         <th>Product name</th>
-                        <th>4 products</th>
+                        <th id="productCount"></th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            Sony Xperia
-                        </td>
-                        <td>
-                            <a href="" class="btn btn-success">Edit</a>
-                            <a href="" class="btn btn-danger">Remove</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Sony Xperia
-                        </td>
-                        <td>
-                            <a href="" class="btn btn-success">Edit</a>
-                            <a href="" class="btn btn-danger">Remove</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Sony Xperia
-                        </td>
-                        <td>
-                            <a href="" class="btn btn-success">Edit</a>
-                            <a href="" class="btn btn-danger">Remove</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Sony Xperia
-                        </td>
-                        <td>
-                            <a href="" class="btn btn-success">Edit</a>
-                            <a href="" class="btn btn-danger">Remove</a>
-                        </td>
-                    </tr>
+                <tbody id="tbProduct">
                 </tbody>
             </table>
         </div>
