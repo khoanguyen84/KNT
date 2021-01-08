@@ -17,7 +17,7 @@
 }
 
 .add-product {
-    width: 40%;
+    width: 50%;
     background-color: grey;
     padding: 20px 15px;
     border-radius: 5px;
@@ -57,6 +57,19 @@ input {
 
 .btn-danger:hover {
     background-color: #e74c3c;
+}
+
+.btn-warning {
+    background-color: yellow;
+    color: grey
+}
+
+.btn-warning:hover {
+    background-color: yellowgreen;
+}
+
+.d-none {
+    display: none;
 }
 
 .table {

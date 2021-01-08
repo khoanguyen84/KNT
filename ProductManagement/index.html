@@ -12,10 +12,12 @@
 <body>
     <div class="container">
         <div class="row">
-            <h3>Add New Product</h3>
+            <h3 id="form-title" contenteditable="true">Add New Product</h3>
             <div class="add-product">
                 <input type="text" id="productName">
                 <a href="javascript:;" class="btn btn-success" onclick="addProduct()">Add</a>
+                <a href="javascript:;" class="btn btn-warning d-none" onclick="reset()">Cancel</a>
+                <input type="hidden" id="productId" value="-1">
             </div>
         </div>
         <div class="row">
