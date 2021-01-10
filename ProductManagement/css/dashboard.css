@@ -3,6 +3,10 @@
 *::after {
     padding: 0px;
     margin: 0px;
+}
+
+html,
+body {
     font-family: 'Courier New', Courier, monospace;
 }
 
@@ -102,4 +106,24 @@ th {
 
 .table>tbody>tr:hover {
     background-color: grey;
+}
+
+#message {
+    padding: 10px;
+}
+
+#message span {
+    color: white;
+}
+
+.success {
+    background-color: #27ae60;
+}
+
+.error {
+    background-color: #c0392b;
+}
+
+#message i {
+    color: black;
 }
