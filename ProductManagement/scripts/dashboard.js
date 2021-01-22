@@ -175,7 +175,6 @@ function showMessage(msg, status) {
     let msgArea = document.getElementById('message');
     let message = msgArea.children[0];
     message.innerText = msg;
-    // msgArea.classList.remove('d-none');
     msgArea.className = "";
     msgArea.classList.add('row');
     switch (status) {
