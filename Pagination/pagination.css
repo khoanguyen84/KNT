@@ -1,0 +1,48 @@
+*,
+*::before,
+*::after {
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+div {
+    margin-bottom: 3px;
+}
+
+table,
+tr,
+th,
+td {
+    border: 1px solid gray;
+    border-collapse: collapse;
+    padding: 5px;
+}
+
+#paging {
+    list-style: none;
+}
+
+#paging li {
+    display: inline-block;
+}
+
+#paging li:not(:last-child) {
+    margin-right: 2px;
+}
+
+#paging li button {
+    padding: 15px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+#paging li button:hover {
+    background-color: greenyellow;
+}
+
+.active {
+    background-color: orange;
+}
