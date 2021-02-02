@@ -11,6 +11,15 @@
 <body>
 
     <div>
+        <select id="pagesize" onchange="changePageSize()">
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+        </select>
+        <input type="search" id="keyword" oninput="search(1)">
+    </div>
+    <div>
         <table>
             <thead>
                 <th>Id</th>

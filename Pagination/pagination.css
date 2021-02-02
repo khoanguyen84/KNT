@@ -46,3 +46,12 @@ td {
 .active {
     background-color: orange;
 }
+
+#pagesize {
+    padding: 5px 15px;
+}
+
+input[type='search'] {
+    padding: 5px;
+    width: 200px;
+}

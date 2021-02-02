@@ -1,29 +1,54 @@
-// var products = ["Sony Xperia", "IP 6s", "IP 7s", "IP 10"];
+class Product {
+    constructor(name, price, quantity) {
+        this.id = increment++;
+        this.name = name;
+        this.price = price;
+        this.priceStr = this.price.toLocaleString('it-IT', {
+            style: 'currency',
+            currency: 'vnd',
+        });
+        this.quantity = quantity;
+    }
+}
+
+var increment = 0;
 var products = [];
 if (window.localStorage.getItem("products") != null) {
     products = JSON.parse(window.localStorage.getItem("products"));
 } else {
-    window.localStorage.setItem("products", JSON.stringify(["Sony Xperia", "IP 6s", "IP 7s", "IP 10"]));
+    let p1 = new Product("Sony Xperia", 5000000, 10);
+    let p2 = new Product("IP 6s", 4500000, 13);
+    products = [p1, p2];
+    window.localStorage.setItem("products", JSON.stringify(products));
 }
 
 function showProduct() {
     let tbProduct = document.getElementById("tbProduct");
     tbProduct.innerHTML = "";
     products.forEach(function(v, i) {
-        tbProduct.innerHTML += `
+            tbProduct.innerHTML += `
                                 <tr id="tr_${i}">
                                     <td>
-                                        ${v}
+                                        ${++i}
                                     </td>
                                     <td>
-                                        <a href="javascript:;" class="btn btn-warning" onclick='inlineEditProduct(${i})'>Inline Edit</a>
-                                        <a href="javascript:;" class="btn btn-danger d-none" onclick='inlineEdit(${i})'>Inline Update</a>
-                                        <a href="javascript:;" class="btn btn-success" onclick='editProduct(${i})'>Edit</a>
-                                        <a href="javascript:;" class="btn btn-success" onclick='getProduct(${i})'>Modify</a>
-                                        <a href="javascript:;" class="btn btn-danger" onclick='remove(${i})'>Remove</a>
+                                        ${v.name}
+                                    </td>
+                                    <td style='text-align:right;'>
+                                        ${v.priceStr}
+                                    </td>
+                                    <td style='text-align:center;'>
+                                        ${v.quantity}
+                                    </td>
+                                    <td>
+                                        <a href="javascript:;" class="btn btn-warning" onclick='inlineEditProduct(${v.id})'>Edit</a>
+                                        <a href="javascript:;" class="btn btn-danger d-none" onclick='inlineEdit(${v.id})'>Update</a>
+                                        <a href="javascript:;" class="btn btn-danger" onclick='remove(${v.id})'>Remove</a>
                                     </td>
                                 </tr>`
-    })
+        })
+        // <a href="javascript:;" class="btn btn-success" onclick='editProduct(${i})'>Edit</a>
+        //                                     <a href="javascript:;" class="btn btn-success" onclick='getProduct(${i})'>Modify</a>
     document.getElementById("productCount").innerHTML = `${products.length} products`;
 }
 
@@ -38,7 +63,7 @@ function isNullOrEmpty(str) {
 
 function isExistProduct(pn) {
     for (let item of products) {
-        if (item.toLowerCase() == pn.toLowerCase()) {
+        if (item.name.toLowerCase() == pn.toLowerCase()) {
             return products.indexOf(item);
         }
     }
@@ -59,7 +84,9 @@ function format(str) {
 }
 
 function addProduct() {
-    let productName = document.getElementById("productName").value;
+    let productName = document.getElementById("name").value;
+    let price = parseInt(document.getElementById("price").value);
+    let quantity = parseInt(document.getElementById("quantity").value);
     if (isNullOrEmpty(productName)) {
         alert("Product name is required.");
     } else {
@@ -70,7 +97,8 @@ function addProduct() {
             if (isExistProduct(productName) != -1) {
                 alert(`Product name ${productName} is exist`);
             } else {
-                products.push(productName);
+                let product = new Product(productName, price, quantity);
+                products.push(product);
                 window.localStorage.setItem("products", JSON.stringify(products));
                 reset();
             }
@@ -117,10 +145,11 @@ function getProduct(id) {
 }
 
 function reset() {
-    let addEditForm = document.getElementsByClassName("add-product")[0];
-    addEditForm.children[0].value = "";
-    addEditForm.children[1].text = "Add";
-    addEditForm.children[2].classList.add('d-none');
+    document.getElementById("name").value = "";
+    document.getElementById("price").value = 0;
+    document.getElementById("quantity").value = 0;
+    document.getElementById("btnAdd").innerHTML = "Add";
+    document.getElementById("btnReset").classList.add('d-none');
     document.getElementById("productId").value = -1;
     document.getElementById("form-title").innerHTML = "Add New Product";
 }
@@ -157,18 +186,22 @@ function inlineEdit(id) {
 }
 
 function remove(id) {
-    if (id < 0 || id >= products.length) {
-        // alert(`Can not found id = ${id}`);
+    let product = findById(id);
+    if (product == undefined) {
         showMessage(`Can not found id = ${id}`, 0);
     } else {
         let confirmed = window.confirm('Are you sure remove this product?');
         if (confirmed) {
-            products.splice(id, 1);
+            products.splice(products.indexOf(product), 1);
             window.localStorage.setItem("products", JSON.stringify(products));
             showMessage(`Product has been removed success.`, 1);
             showProduct();
         }
     }
+}
+
+function findById(id) {
+    return products.find(e => { return e.id == id });
 }
 
 function showMessage(msg, status) {

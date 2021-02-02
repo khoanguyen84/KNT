@@ -2,13 +2,12 @@ let data = [];
 let size = 43;
 let min = 5;
 let max = 8;
-let pagesize = 10;
 let lowerCase = "abcdefghijklmnopqrstuvwxyz";
 let upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 function generateString() {
     let length = Math.floor(Math.random() * 4 + 5);
-    let fristChar = upperCase[Math.floor(Math.random() * 26 + 1)];
+    let fristChar = upperCase[Math.floor(Math.random() * 26)];
     let theRestChars = lowerCase.substr(Math.floor(Math.random() * (26 - length) + 2), length - 1);
     return `${fristChar}${theRestChars}`;
 }
@@ -25,21 +24,24 @@ function generateStudents(size) {
     return arr;
 }
 
-function showStudents(pagenumber, pagesize) {
+function showStudents(pagenumber, list) {
+    let pagesize = parseInt(document.getElementById('pagesize').value);
     let tbStd = document.getElementById('tbStudents');
     tbStd.innerHTML = '';
-    let resut = data.slice((pagenumber - 1) * pagesize, pagesize * pagenumber)
-    resut.forEach(function(v, i) {
+    let result = list.slice((pagenumber - 1) * pagesize, pagesize * pagenumber)
+    result.forEach(function(v, i) {
         tbStd.innerHTML += `
                             <tr>
-                                    <td>${data.indexOf(v) + 1}</td>
+                                    <td>${list.indexOf(v) + 1}</td>
                                     <td>${v}</td>
                                 </tr>
                             `;
     })
 }
 
-function initPaging(pagenumber, pagesize) {
+function initPaging(pagenumber, list) {
+    let pagesize = parseInt(document.getElementById('pagesize').value);
+    let size = list.length;
     let pages = Math.ceil(size / pagesize);
     let root = document.getElementById('paging');
     root.innerHTML = '';
@@ -50,14 +52,32 @@ function initPaging(pagenumber, pagesize) {
 
 function paging(el) {
     let pagenumber = parseInt(el.innerText);
-    showStudents(pagenumber, pagesize);
-    initPaging(pagenumber, pagesize);
+    search(pagenumber);
+}
+
+function changePageSize() {
+    search(1);
+}
+
+function search(pagenumber) {
+    let keyword = document.getElementById("keyword").value;
+    let result = data.filter(e => { return find(e, keyword) });
+    showStudents(pagenumber, result);
+    initPaging(pagenumber, result);
+}
+
+function find(str, kw) {
+    return str.toLowerCase().indexOf(kw.toLowerCase()) != -1;
+}
+
+function find2(obj, kw) {
+    return find(obj.fn, kw) || find(obj.address, kw);
 }
 
 function init() {
     data = generateStudents(size);
-    showStudents(1, pagesize);
-    initPaging(1, pagesize);
+    showStudents(1, data);
+    initPaging(1, data);
 }
 
 function ready() {

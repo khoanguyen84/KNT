@@ -25,6 +25,21 @@ body {
     background-color: grey;
     padding: 20px 15px;
     border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.add-product>div {
+    display: flex;
+    margin: 3px;
+}
+
+.add-product>div>label {
+    width: 150px;
+}
+
+.add-product>div>input {
+    flex: 1;
 }
 
 input {
