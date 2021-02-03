@@ -3,6 +3,7 @@
 *::after {
     padding: 0px;
     margin: 0px;
+    box-sizing: border-box;
 }
 
 html,
@@ -141,6 +142,27 @@ th {
 
 #message i {
     color: black;
+}
+
+#pagination {
+    list-style-type: none;
+    display: flex;
+}
+
+#pagination li:not(:last-child) {
+    margin-right: 2px;
+}
+
+#pagination li button {
+    padding: 15px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+#pagination li button:hover {
+    background-color: greenyellow;
 }
 
 @media (max-width:600px) {

@@ -3,12 +3,16 @@ class Product {
         this.id = increment++;
         this.name = name;
         this.price = price;
-        this.priceStr = this.price.toLocaleString('it-IT', {
-            style: 'currency',
-            currency: 'vnd',
-        });
+        this.priceStr = formatCurrency(price);
         this.quantity = quantity;
     }
+}
+
+function formatCurrency(price) {
+    return parseInt(price).toLocaleString('it-IT', {
+        style: 'currency',
+        currency: 'vnd',
+    });
 }
 
 var increment = 0;
@@ -42,7 +46,8 @@ function showProduct() {
                                     </td>
                                     <td>
                                         <a href="javascript:;" class="btn btn-warning" onclick='inlineEditProduct(${v.id})'>Edit</a>
-                                        <a href="javascript:;" class="btn btn-danger d-none" onclick='inlineEdit(${v.id})'>Update</a>
+                                        <a href="javascript:;" class="btn btn-success d-none" onclick='inlineEdit(${v.id})'>Update</a>
+                                        <a href="javascript:;" class="btn btn-warning d-none" onclick='inlineReset(${v.id})'>Cancel</a>
                                         <a href="javascript:;" class="btn btn-danger" onclick='remove(${v.id})'>Remove</a>
                                     </td>
                                 </tr>`
@@ -155,33 +160,55 @@ function reset() {
 }
 
 function inlineEditProduct(id) {
-    let tr = document.getElementById(`tr_${id}`);
-    let data = tr.children[0].innerText;
-    tr.children[0].innerHTML = `<input type="text" id="pn_${id}" value="${data}"/> <a href='javascript:;' onclick="inlineReset(${id})"><i style="color:red" class="fa fa-times"></i></a>`;
-    tr.children[1].children[0].classList.add('d-none');
-    tr.children[1].children[1].classList.remove('d-none');
-    let pnInupt = document.getElementById(`pn_${id}`);
-    pnInupt.focus();
-    pnInupt.setSelectionRange(pnInupt.value.length, pnInupt.value.length);
+    let product = findById(id);
+    if (product != undefined) {
+        let tr = document.getElementById(`tr_${id}`);
+        // let data = tr.children[0].innerText;
+        //  <a href='javascript:;' onclick="inlineReset(${id})"><i style="color:red" class="fa fa-times"></i></a>
+        tr.children[1].innerHTML = `<input type="text" id="pn_${id}" value="${product.name}"/>`;
+        tr.children[2].innerHTML = `<input type="text" id="price_${id}" value="${product.price}"/>`;
+        tr.children[3].innerHTML = `<input type="text" id="quantity_${id}" value="${product.quantity}"/>`;
+        tr.children[4].children[0].classList.add('d-none');
+        tr.children[4].children[1].classList.remove('d-none');
+        tr.children[4].children[2].classList.remove('d-none');
+        let pnInupt = document.getElementById(`pn_${id}`);
+        pnInupt.focus();
+        pnInupt.setSelectionRange(pnInupt.value.length, pnInupt.value.length);
+    }
 }
 
 function inlineReset(id) {
-    let tr = document.getElementById(`tr_${id}`);
-    let oldData = products[id];
-    tr.children[0].innerHTML = oldData;
-    tr.children[1].children[0].classList.remove('d-none');
-    tr.children[1].children[1].classList.add('d-none');
+    let product = findById(id);
+    if (product != undefined) {
+        let tr = document.getElementById(`tr_${id}`);
+        tr.children[1].innerHTML = product.name;
+        tr.children[2].innerHTML = product.priceStr;
+        tr.children[3].innerHTML = product.quantity;
+        tr.children[4].children[0].classList.remove('d-none');
+        tr.children[4].children[1].classList.add('d-none');
+        tr.children[4].children[2].classList.add('d-none');
+    }
 }
 
-function inlineEdit(id) {
-    let productName = document.getElementById(`pn_${id}`).value;
-    let pos = isExistProduct(productName)
-    if (pos != -1 && pos != productId) {
+function inlineEdit(productId) {
+    let product = findById(productId);
+    let pos = products.indexOf(product);
+    let productName = document.getElementById(`pn_${productId}`).value;
+    let price = parseInt(document.getElementById(`price_${productId}`).value);
+    let quantity = parseInt(document.getElementById(`quantity_${productId}`).value);
+
+    if (product != undefined && product.id != productId) {
         alert(`Product name ${productName} is exist`);
     } else {
-        products[id] = productName;
+        product.name = productName;
+        product.quantity = quantity;
+        product.price = price;
+        product.priceStr = formatCurrency(price);
+
+        products[pos] = product;
+
         window.localStorage.setItem("products", JSON.stringify(products));
-        inlineReset(id)
+        inlineReset(productId)
     }
 }
 
@@ -203,6 +230,7 @@ function remove(id) {
 function findById(id) {
     return products.find(e => { return e.id == id });
 }
+
 
 function showMessage(msg, status) {
     let msgArea = document.getElementById('message');
